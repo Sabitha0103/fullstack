@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic jQuery Example</title>
+        <meta charset="UTF-8" />    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Hello, jQuery!</h1>
+        <button id="btn">Click Me</button>
+        <p id="text">This is a paragraph.</p>
+
+        <script>
+            $(document).ready(function() {
+                $("#btn").click(function() {
+                    $("#text").css("color", "blue").text("Text changed!");
+                });
+                $("#btn").dblclick(function() {
+                    $("#text").css("color", "black").text("Hi this is sabitha");
+                });
+                $("#btn").keydown(function() {
+                    $("#text").css("color", "red").text("Text changed on keydown!");
+                });
+            });
+        </script>
+    </body>
+</html>

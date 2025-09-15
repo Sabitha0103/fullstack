@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Sample Site</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #dlead5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: hwb(87 62% 35%);
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .about-img img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        a:hover{
+            color: rgb(237, 104, 8);
+        }
+        .summary1 {
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            align: center;
+        }
+        .card {
+            background: #f4f2f2;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            padding: 20px;
+            flex: 1 1 130px;
+            min-width: 130px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cardam{
+            display: flex;
+            gap: 24px;
+            background-color: rgb(217, 223, 223);
+        }
+        .about-img {
+            flex: 1 1 180px;
+            max-width: 180px;
+            margin-right: 2rem;
+            overflow: hidden;
+            align: center;
+        }
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            background-color: rgb(240, 245, 245);
+        }
+        .cards:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: var(--accent);
+            color: #7c1b1b;
+        }
+        .card1{
+            background: #eadbdb;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            padding: 20px;
+            flex: 1 1 130px;
+            min-width: 130px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .project-img:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        h4:hover{
+            color: rgb(237, 104, 8);
+        }
+        .project-details {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SABITHA</h1>
+            <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            </nav>
+        </header> 
+        <div class="card">
+            <h2 id="about">About Me</h2>
+            <div class="cardam">
+            <div class="summary1">
+                <div class="about-img">
+                <img src="https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp" alt="Profile Picture"  align-class="center">
+                </div>
+                <h3>SABITHA </h3>
+                <p>I am a web developer with a passion for creating beautiful and functional websites.</p>
+            </div>
+            </div>
+            <div class="summary2">
+                <h2 id="skills">Skills</h2>
+                <div class="cards">
+                    <div class="card1">
+                        <h6>HTML</h6>
+                    </div>
+                    <div class="card1">
+                        <h6>CSS</h6>
+                    </div>
+                    <div class="card1">
+                        <h6>JavaScript</h6>
+                    </div>
+            </div>
+            <div class="summary3">
+                <h2 id="projects">Projects</h2>
+                <div class="cardp">
+                    <div class="card1">
+                        <img class=""project-img" src="projectimg.png" alt="Project img">
+                        <div class="project-details">
+                            <h4>Flight Finder</h4>
+                            <p>A web application that helps users find real-time flight information for Brazilian airlines.</p> 
+                            <a href="https://github.com/geetharani543/Flight-finder-navigating-your-air-travel-options/commit/8f010044d1a845b0b4be7b23fa59e965b91ca81c">Github Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</html>

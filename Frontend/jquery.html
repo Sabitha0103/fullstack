@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery CDN Example</title>
+  <!-- jQuery from CDN (Google Hosted Libraries) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background: lightblue;
+      margin: 20px;
+      text-align: center;
+      line-height: 200px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="box">Hello</div>
+  <button id="changeColor">Change Color</button>
+
+  <script>
+    // jQuery code
+    $(document).ready(function () {
+      $("#changeColor").click(function () {
+        $("#box").css("background", "lightgreen").text("Changed!");
+      });
+    });
+  </script>
+
+</body>
+</html>

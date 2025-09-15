@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <title>Student Registration Form</title>
+        <meta charset="UTF-8">
+        <style>
+            .container {
+                max-width: 800px;
+                margin: 60px auto;
+                background: hwb(60 84% 11%);
+                padding: 32px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+            form {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                gap: 1rem;
+    }
+            button:hover{
+                transform:translate(-5px) scale(1.0);
+                background-color: rgb(148, 137, 126);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Student Registration Form</h1>
+        <div class="container">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for ="gender">Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="Male">Male
+                <input type="radio" id="female" name="gender" value="Female">Female
+                <label for ="hobbies">Hobbies:</label>
+                <textarea id="hobbies" name="hobbies" rows="4" cols="30" placeholder="Enter your hobbies"></textarea>
+                <label for="password" >Password:</label>
+                <input type="password" id="password" name="pasword" placeholder="Enter password" required><br><br>
+                <button type="submit">Register</button>
+
+            </form>
+        </div>
+    </body>
+</html>

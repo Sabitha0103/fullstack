@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Editable Task List</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; padding: 30px; }
+    ul#tasks { list-style: none; padding: 0; max-width: 480px; }
+    ul#tasks li {
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: #f3f4f6;
+      cursor: default;
+      user-select: none;
+    }
+    ul#tasks li.editing { background: #fffbe6; }
+    input.task-editor {
+      width: calc(100% - 20px);
+      font: inherit;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My Tasks</h2>
+  <ul id="tasks" aria-label="Task list">
+    <li>Buy groceries</li>
+    <li>Finish assignment</li>
+    <li>Call mom</li>
+  </ul>
+
+  <script>
+    const tasks = document.getElementById('tasks');
+
+    // Delegate dblclick to <li> elements
+    tasks.addEventListener('dblclick', (e) => {
+      const li = e.target.closest('li');
+      if (!li || !tasks.contains(li)) return;
+
+      // If already editing, ignore
+      if (li.classList.contains('editing')) return;
+
+      makeEditable(li);
+    });
+
+    function makeEditable(li) {
+      const originalText = li.textContent.trim();
+      li.classList.add('editing');
+
+      // Create input and populate with text
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = originalText;
+      input.className = 'task-editor';
+      input.setAttribute('aria-label', 'Edit task');
+
+      // Replace li contents with input
+      li.textContent = '';           // clear
+      li.appendChild(input);
+
+      // Focus and select all text for quick editing
+      input.focus();
+      input.select();
+
+      // Finish editing: save true/false (true => save, false => cancel)
+      function finish(save) {
+        // Remove handlers to prevent multiple calls
+        input.removeEventListener('blur', onBlur);
+        input.removeEventListener('keydown', onKeyDown);
+
+        li.classList.remove('editing');
+
+        if (save) {
+          const newText = input.value.trim();
+          // If empty, keep original text (change behaviour if you prefer empty allowed)
+          li.textContent = newText === '' ? originalText : newText;
+        } else {
+          // cancel: restore original
+          li.textContent = originalText;
+        }
+      }
+
+      function onBlur() {
+        // Save on blur
+        finish(true);
+      }
+
+      function onKeyDown(ev) {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          finish(true);
+        } else if (ev.key === 'Escape') {
+          ev.preventDefault();
+          finish(false);
+        }
+      }
+
+      input.addEventListener('blur', onBlur);
+      input.addEventListener('keydown', onKeyDown);
+
+      // Optional: prevent double-click selecting text / selecting other content
+      input.addEventListener('mousedown', (evt) => evt.stopPropagation());
+    }
+  </script>
+</body>
+</html>
