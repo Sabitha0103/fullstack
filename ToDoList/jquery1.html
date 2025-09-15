@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To do List</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            .container{
+                max-width: 900px;
+            margin: 40px auto;
+            background: hwb(87 62% 35%);
+            padding: 32px;
+            border-radius: 8px;
+            }
+            button{
+                background-color: #219da8;
+                color: white;
+            }
+
+            button:hover{
+                background-color: #a5a79e;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <h1>To Do List</h1>
+        <input type="text" id="task" placeholder=AddTask>
+        <button id="add">Add Task</button>
+         <ul id="list"></ul>
+        <li>task1</li> 
+        <li>task2</li>
+        <li>task3</li><br>
+        <script>
+    $(document).ready(function(){
+         $("#add").click(function(){
+  let task = $("#task").val();
+  if(task !== ""){
+    $("#list").append(
+      `<li>${task}
+        <button id='done'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>`
+    );
+    $("#task").val("");
+  }
+});
+
+// Mark as complete
+$("#list").on("click", "#done", function(){
+  $(this).parent().css("background-color","yellow");
+});
+
+// Delete
+$("#list").on("click", ".delete", function(){
+  $(this).parent().remove();
+});
+
+}); 
+</script>
+</div>
+    </body>
+</html>
